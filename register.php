@@ -19,7 +19,7 @@
 <body class="bg-dark">
   <div class="container">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Register an Account</div>
+      <div class="card-header">Time to feel like home</div>
       <div class="card-body">
         <form>
           <div class="form-group">
@@ -53,8 +53,12 @@
           <a class="btn btn-primary btn-block" href="login.php">Register</a>
         </form>
         <div class="text-center">
+<<<<<<< HEAD:register.php
           <a class="d-block small mt-3" href="login.php">Login Page</a>
           <a class="d-block small" href="forgot-password.php">Forgot Password?</a>
+=======
+          <a class="d-block small mt-3" href="login.html">Already one of us? SIGN IN</a>
+>>>>>>> a8356b4a285f85c46ed9a5e9a555c1f788703920:register.html
         </div>
       </div>
     </div>

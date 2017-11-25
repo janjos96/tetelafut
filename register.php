@@ -52,17 +52,12 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login.php">Register</a>
+          <input class="btn btn-primary btn-block" type="submit" name="register_submit" value="Register"/>
         </form>
         <div class="text-center">
-<<<<<<< HEAD
           <!--<a class="d-block small mt-3" href="login.php">Login Page</a>-->
           <!--<a class="d-block small" href="forgot-password.php">Forgot Password?</a> -->
           <a class="d-block small mt-3" href="login.html">Already one of us? SIGN IN</a>
-=======
-
-          <a class="d-block small mt-3" href="login.php">Already one of us? SIGN IN</a>
->>>>>>> bdaa51807e6adfd6f1bfae5e78ab25d52ae65be1
         </div>
       </div>
     </div>

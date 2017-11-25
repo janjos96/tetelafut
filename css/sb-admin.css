@@ -5,12 +5,13 @@
  */
 html {
   position: relative;
-  min-height: 100%; }
+  min-height: 100%;
+background-color: white;}
 
 body {
   background-color: #2C2C32;
   overflow-x: hidden;
-font-family: 'Roboto', sans-serif;}
+font-family: 'Montserrat', sans-serif;}
 
 body.sticky-footer {
   margin-bottom: 56px; }
@@ -24,8 +25,23 @@ body.fixed-nav {
   background-color: #2C2C32;
   color: white;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
+}
+
+.notvisible{
+  visibility: hidden;
+}
+
+#nameuser{
+  font-family: 'Montserrat', sans-serif;
+  font-size:1.2rem;
+}
+
+#imguser{
+  border-radius: 50%;
+  height: 2.2rem;
+  margin-right: 1rem;
 }
 
 label{
@@ -35,7 +51,7 @@ label{
 
 .content-wrapper {
   min-height: calc(100vh - 56px);
-  padding-top: 1rem; }
+  padding-top: 1rem;  }
 
 .scroll-to-top {
   position: fixed;
@@ -118,6 +134,7 @@ label{
 
 @media (min-width: 992px) {
   #mainNav .navbar-brand {
+    text-align: left;
     width: 250px; }
   #mainNav .navbar-collapse {
     overflow: visible;
@@ -211,6 +228,8 @@ body.sidenav-toggled #mainNav.fixed-top #sidenavToggler i {
   display: none; }
 
 @media (min-width: 992px) {
+  #imguser{
+  }
   #mainNav.static-top .sidenav-toggler {
     display: flex; } }
 

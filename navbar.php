@@ -15,7 +15,7 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
-
+<head/>
 
 <body class="fixed-nav" id="">
   <!-- Navigation-->

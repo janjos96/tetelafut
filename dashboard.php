@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +23,12 @@
 
     <?php
     include 'navbar.php';
-    include  'parts/loginscript.php';
+
+    if(!isset($_SESSION['loggedin'])) {
+        print "<script type='text/javascript'>
+        window.location.href = 'login.php';
+        </script>";
+    }
     ?>
 
 <body>

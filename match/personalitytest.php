@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Title of the document</title>
+    <title>Match Me</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="jquery-3.2.1.min.js"></script>
@@ -48,24 +48,30 @@
 
 </head>
 
+<?php
+
+$_SESSION['test'] = 1;
+
+?>
+
 <body>
 
 
 
     <section id="1">
-        <img src="Artboard%201.png" alt="Smiley face">
+        <img src="Artboard 1.png" alt="Smiley face">
 
     </section>
     <section id="2">
-        <img src="Artboard%202.png" alt="Smiley face">
+        <img src="Artboard 2.png" alt="Smiley face">
 
     </section>
     <section id="3">
-        <img src="Artboard%203.png" alt="Smiley face">
+        <img src="Artboard 3.png" alt="Smiley face">
 
     </section>
     <section id="4">
-        <img src="Artboard%204.png" alt="Smiley face">
+        <img src="Artboard 4.png" alt="Smiley face">
 
     </section>
     <div id="answer">
@@ -102,7 +108,7 @@
 
             } else if (count === 4) {
 
-                $(location).attr('href', 'dashboard.php');
+                $(location).attr('href', '../dashboard.php');
 
 
             }
@@ -122,7 +128,6 @@
                 $("#1").fadeOut(0);
                 $("#2").fadeIn(0);
             } else if (count === 2) {
-
                 $("#2").fadeOut(0);
                 $("#3").fadeIn(0);
             } else if (count === 3) {
@@ -132,7 +137,7 @@
 
             } else if (count === 4) {
 
-                $(location).attr('href', 'index.php');
+                $(location).attr('href', '../dashboard.php');
 
 
             }

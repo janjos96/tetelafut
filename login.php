@@ -36,8 +36,9 @@
                 <input class="form-check-input" type="checkbox"> Remember Password</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="index.php">Login</a>
+          <input class="btn btn-primary btn-block" type="submit" name="login_submit" value="Log In"/>
         </form>
+          <?php include 'parts/loginscript.php'?>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.php">Register an Account</a>
           <a class="d-block small" href="forgot-password.php">Forgot Password?</a>

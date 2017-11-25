@@ -26,39 +26,36 @@
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputName">First name</label>
-                <input class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                <input class="form-control" id="InputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
               </div>
               <div class="col-md-6">
                 <label for="exampleInputLastName">Last name</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                <input class="form-control" id="InputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <input class="form-control" id="InputEmail" type="email" aria-describedby="emailHelp" placeholder="Enter email">
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+                <input class="form-control" id="InputPassword" type="password" placeholder="Password">
               </div>
               <div class="col-md-6">
                 <label for="exampleConfirmPassword">Confirm password</label>
-                <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="Confirm password">
+                <input class="form-control" id="ConfirmPassword" type="password" placeholder="Confirm password">
               </div>
             </div>
           </div>
           <a class="btn btn-primary btn-block" href="login.php">Register</a>
         </form>
         <div class="text-center">
-<<<<<<< HEAD:register.php
-          <a class="d-block small mt-3" href="login.php">Login Page</a>
-          <a class="d-block small" href="forgot-password.php">Forgot Password?</a>
-=======
+          <!--<a class="d-block small mt-3" href="login.php">Login Page</a>-->
+          <!--<a class="d-block small" href="forgot-password.php">Forgot Password?</a> -->
           <a class="d-block small mt-3" href="login.html">Already one of us? SIGN IN</a>
->>>>>>> a8356b4a285f85c46ed9a5e9a555c1f788703920:register.html
         </div>
       </div>
     </div>

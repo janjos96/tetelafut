@@ -14,12 +14,13 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
 </head>
 
-<body class="bg-dark">
+<body>
   <div class="container">
-    <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Time to feel like home</div>
+    <div class="mx-auto mt-5">
+      <div class="resgister_title">Time to feel like home,</div>
       <div class="card-body">
         <form>
           <div class="form-group">
@@ -35,6 +36,7 @@
             </div>
           </div>
           <div class="form-group">
+              <div class="form-row">
             <label for="exampleInputEmail1">Email address</label>
             <input class="form-control" id="InputEmail" type="email" aria-describedby="emailHelp" placeholder="Enter email">
           </div>
@@ -53,9 +55,14 @@
           <a class="btn btn-primary btn-block" href="login.php">Register</a>
         </form>
         <div class="text-center">
+<<<<<<< HEAD
           <!--<a class="d-block small mt-3" href="login.php">Login Page</a>-->
           <!--<a class="d-block small" href="forgot-password.php">Forgot Password?</a> -->
           <a class="d-block small mt-3" href="login.html">Already one of us? SIGN IN</a>
+=======
+
+          <a class="d-block small mt-3" href="login.php">Already one of us? SIGN IN</a>
+>>>>>>> bdaa51807e6adfd6f1bfae5e78ab25d52ae65be1
         </div>
       </div>
     </div>

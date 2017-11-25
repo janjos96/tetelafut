@@ -1,7 +1,9 @@
 <?php
 
 if( isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true) {
-    header("Location: index.php");
+    print "<script type='text/javascript'>
+        window.location.href = 'dashboard.php';
+        </script>";
 }
 
 //Ligação à base de dados
@@ -30,13 +32,13 @@ if(isset($_POST['login_submit'])){
             $linha_col = mysqli_fetch_assoc($resultados_col);
             if ($escapedMail === $linha_col['col_email']) {
                 //verifica se a password da conta está correta
-                if (/*password_verify($escapedPassword, $linha_col['col_password'])*/ $escapedPassword == $linha_col['col_password']) {
+                if (password_verify($escapedPassword, $linha_col['col_password'])) {
                     $resultados = mysqli_query($conn, "select * from colaborador where col_email='$escapedMail';");
                     $linha_col = mysqli_fetch_assoc($resultados);
                     $_SESSION['loggedin'] = true;
                     $_SESSION['admin'] = false;
                     $_SESSION['name'] = $linha_col['col_name'];
-                    header("Location: index.php");
+                    header("Location: dashboard.php");
                     exit;
                 } else {
                     print "Invalid Password!";
@@ -54,7 +56,7 @@ if(isset($_POST['login_submit'])){
                     $_SESSION['loggedin'] = true;
                     $_SESSION['admin'] = true;
                     $_SESSION['name'] = $linha_admin['admin_name'];
-                    header("Location: index.php");
+                    header("Location: dashboard.php");
                     exit;
                 } else {
                     print "Invalid Password!";

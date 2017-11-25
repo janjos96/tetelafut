@@ -19,7 +19,9 @@
 
     <?php
     include 'navbar.php';
+    include  'parts/loginscript.php';
     ?>
+
 <body>
 <div class="content-wrapper">
     <div class="container-fluid">

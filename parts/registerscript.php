@@ -1,87 +1,89 @@
 <?php
+
+/*if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true) {
+    header("Location: index.php");
+}*/
+
 //Ligação à base de dados
 $servername = "localhost";
 $username = "root";
 $password = "";
-$bd = "Projeto_Si";
+$bd = "tetelafut";
 $conn = mysqli_connect($servername, $username, $password, $bd);
 if (!$conn) {
-    die("Erro na ligacao: " . mysqli_connect_error()); //Mensagem de erro caso nao haja ligação à base de dados
-    //Caso haja ligação executa o código abaixo!vv
+    die("Connection Error: " . mysqli_connect_error());
 }
 
 
 //Verifica se o botão de registo já foi carregado ou não
-if (isset($_POST['signup_submit'])) {
+if (isset($_POST['register_submit'])) {
 
     //Verifica se todos os campos do formulário foram preenchidos e não estão vazios
-    if ((isset($_POST['nome']) && !empty($_POST['nome'])) && (isset($_POST['email']) && !empty($_POST['email'])) && (isset($_POST['password']) && !empty($_POST['password']))) {
-        $escapedNome = mysqli_real_escape_string($conn, $_POST['nome']);
+    if ((isset($_POST['firstname']) && !empty($_POST['firstname'])) && (isset($_POST['lastname']) && !empty($_POST['lastname'])) && (isset($_POST['email']) && !empty($_POST['email'])) && (isset($_POST['password']) && !empty($_POST['password'])) && (isset($_POST['password_confirm']) && !empty($_POST['password_confirm']))) {
+        $escapedFirstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+        $escapedLastname = mysqli_real_escape_string($conn, $_POST['lastname']);
         $escapedMail = mysqli_real_escape_string($conn, $_POST['email']);
         $escapedPassword = mysqli_real_escape_string($conn, $_POST['password']);
+        $escapedPasswordConfirm = mysqli_real_escape_string($conn, $_POST['password_confirm']);
+        $rookie = 0;
+        if(isset($_POST['rookie']) && $_POST['rookie'] == "on") { $rookie = 1; }
 
-        //Verifica se o email já existe na base de dados
-        $resultados = mysqli_query($conn, "select email from clients where (email='$escapedMail');");
-        if (mysqli_num_rows($resultados) > 0) {
-            $linha = mysqli_fetch_assoc($resultados);
-            if ($escapedMail == $linha['email']) {
-                print "Email já existente!";
-            }
-            //caso o mail nao existir corre o codigo abaixo
+        print $rookie;
+
+
+        if ($escapedPassword != $escapedPasswordConfirm) {
+            print "<p class='text-white'>Passwords have to be the same</p>";
         } else {
-            //verifica se o mail é valido e está bem escrito
-            if (!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $escapedMail)) {
-                $msg = 'Email inválido, por favor tente de novo';
+            //Verifica se o email já existe na base de dados
+            $resultados_col = mysqli_query($conn, "select col_email from colaborador where (col_email='$escapedMail');");
+            $resultados_admin = mysqli_query($conn, "select admin_email from admin where (admin_email='$escapedMail');");
+            if ((mysqli_num_rows($resultados_col) + mysqli_num_rows($resultados_admin)) > 0) {
+                print "<p class='text-white'>Existing Email!</p>";
+                //caso o mail nao existir corre o codigo abaixo
             } else {
-                $msg = 'Conta criada, <br /> por favor verifique a sua conta através do link que enviamos para o seu email.';
+                //verifica se o mail é valido e está bem escrito
+                if (!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/', $escapedMail)) {
+                    $msg = 'Invalida Email, please try again!';
+                } else {
+                    $msg = 'Account Created, please verify the data that we have sent to your email.';
 
-                $hash = md5(rand(0, 1000));
-                $passwordHashed = password_hash($escapedPassword, PASSWORD_DEFAULT);
+                    $passwordHashed = password_hash($escapedPasswordConfirm, PASSWORD_DEFAULT);
+                    $nome_col = ucwords($escapedFirstname)." ".ucwords($escapedLastname);
 
-                //inserção dos dados na base de dados
-                mysqli_query($conn, "INSERT INTO colaboradores (name , email , password , hash, balance) VALUES(
-            '" . mysqli_real_escape_string($conn, ucwords($escapedNome)) . "',
-            '" . mysqli_real_escape_string($conn, $escapedMail) . "',
-            '" . mysqli_real_escape_string($conn, $passwordHashed) . "',
-            '" . mysqli_real_escape_string($conn, $hash) . "',
-            '" . mysqli_real_escape_string($conn, $balance) . "')") or die("Erro na criação de conta: " . mysqli_connect_error());
+                    //inserção dos dados na base de dados
+                    mysqli_query($conn, "INSERT INTO colaborador (col_name , col_email , col_password, col_effective, col_test) VALUES(
+                    '" . mysqli_real_escape_string($conn, $nome_col) . "',
+                    '" . mysqli_real_escape_string($conn, $escapedMail) . "',
+                    '" . mysqli_real_escape_string($conn, $passwordHashed) . "',
+                    '" . mysqli_real_escape_string($conn, $rookie) . "',
+                    '0')") or die("<p class='text-white'>Error when creating the account: </p>" . mysqli_connect_error());
 
-                $para = $escapedMail; // Send email to our user
-                $assunto = 'Blue Infinity'; // Give the email a subject
-                $mensagem = '
+                    $para = $escapedMail; // Send email to our user
+                    $assunto = 'Blue Infinity'; // Give the email a subject
+                    $mensagem = '
  
-                Mensagem de boas vindas:
+                    Welcome Message:
                 
-                ------------------------
-                Email: ' . $escapedMail . '
-                Password: ' . $escapedPassword . '
-                ------------------------
+                    ------------------------
+                    Email: ' . $escapedMail . '
+                    Password: ' . $escapedPassword . '
+                    ------------------------
  
-                ';
+                    ';
 
-                $headers = 'From:noreply@blueinfinity.com'; // Nome de quem envia o link
-                mail($para, $assunto, $mensagem, $headers); // Envia o código
+                    $headers = 'From:noreply@blueinfinity.com'; // Nome de quem envia o link
+                    mail($para, $assunto, $mensagem, $headers); // Envia o código
 
-                mysqli_close($conn);
+                    mysqli_close($conn);
+
+                    print "<p class='text-white'>".$msg."</p>";
+                }
             }
         }
-
     } else {
         //mensagem a imprimir caso o prenchimento dos dados ao inicio tenha sido inválido
-        print "erro a preencher o formulário";
+        print "<p class='text-white'>Error filling the form</p>";
     }
-
-    print "<script type='text/javascript'>
-            $(document).ready(function(){
-                $('#signupModal').modal('show');
-             });
-          </script>";
-
 }
-
-if (isset($msg)) {
-    print "<h3>" . $msg . "</h3>";
-}
-
 
 ?>

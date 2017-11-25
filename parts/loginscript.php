@@ -1,4 +1,9 @@
 <?php
+
+if( isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true) {
+    header("Location: index.php");
+}
+
 //Ligação à base de dados
 $servername = "localhost";
 $username = "root";
@@ -6,7 +11,7 @@ $password = "";
 $bd = "tetelafut";
 $conn = mysqli_connect($servername, $username, $password, $bd);
 if (!$conn) {
-    die("Erro na ligacao: " . mysqli_connect_error());
+    die("Connection error: " . mysqli_connect_error());
 }
 
 
@@ -34,7 +39,7 @@ if(isset($_POST['login_submit'])){
                     header("Location: index.php");
                     exit;
                 } else {
-                    print "Password incorreta!";
+                    print "Invalid Password!";
                 }
             }
 
@@ -52,17 +57,17 @@ if(isset($_POST['login_submit'])){
                     header("Location: index.php");
                     exit;
                 } else {
-                    print "Password incorreta!";
+                    print "Invalid Password!";
                 }
             }
 
         } else {
-            print "Erro ao efetuar o login. Por favor registe-se ou confirme a sua conta.";
+            print "Error when logging in. Please confirm your account details.";
         }
 
     } else {
         //mensagem a imprimir caso o prenchimento dos dados ao inicio tenha sido inválido
-        echo "Erro a preencher o formulário";
+        echo "Error filling the form";
     }
 }
 

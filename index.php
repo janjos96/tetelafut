@@ -19,6 +19,11 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+<?php
+session_start();
+?>
+
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.php">Start Bootstrap</a>

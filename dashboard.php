@@ -38,7 +38,7 @@
                 <div class="card text-white bg-primary o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
-                            <i class="fa fa-fw fa-comments"></i>
+                            <img src="bronze.svg" alt="bronze">
                         </div>
                         <div class="mr-5">Events</div>
                     </div>
@@ -54,14 +54,13 @@
                 <div class="card text-white bg-warning o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
-                            <i class="fa fa-fw fa-list"></i>
+                            <img src="silver.svg" alt="silver">
                         </div>
                         <div class="mr-5">Social</div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="#">
                         <span class="float-left">View Details</span>
                         <span class="float-right">
-                <i class="fa fa-angle-right"></i>
               </span>
                     </a>
                 </div>
@@ -70,7 +69,7 @@
                 <div class="card text-white bg-success o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
-                            <i class="fa fa-fw fa-shopping-cart"></i>
+                            <img src="gold.svg" alt="gold">
                         </div>
                         <div class="mr-5">Cooperation</div>
                     </div>
@@ -86,7 +85,7 @@
                 <div class="card text-white bg-danger o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
-                            <i class="fa fa-fw fa-support"></i>
+                            <img src="bronze.svg" alt="bronze">
                         </div>
                         <div class="mr-5">Creativity</div>
                     </div>

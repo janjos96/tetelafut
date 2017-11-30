@@ -35,12 +35,6 @@ session_start();
             <label for="exampleInputPassword1">Password</label>
             <input class="form-control" id="exampleInputPassword1" type="password" name="password" placeholder="Password">
           </div>
-          <div class="form-group">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Remember Password</label>
-            </div>
-          </div>
           <input class="btn btn-primary btn-block" type="submit" name="login_submit" value="Log In"/>
         </form>
           <?php include 'parts/loginscript.php'?>

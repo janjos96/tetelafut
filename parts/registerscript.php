@@ -1,8 +1,11 @@
 <?php
 
-/*if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true) {
-    header("Location: index.php");
-}*/
+if( isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true) {
+    print "<script type='text/javascript'>
+        window.location.href = 'dashboard.php';
+        </script>";
+}
+
 
 //Ligação à base de dados
 $servername = "localhost";
